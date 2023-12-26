@@ -4,35 +4,23 @@ on: [push]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v2
-        with:
-          dotnet-version: '6.0'
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '6.0'
+      
 
-      - name: Restore dependencies
-        run: dotnet restore labtest2
+    - name: Restore dependencies
+      run: dotnet restore labtest2
 
-      - name: Build
-        run: dotnet build --configuration Release labtest2
+    - name: Build
+      run: dotnet build --configuration Release labtest2
 
-      - name: Run Tests and Save Results as TRX
-        run: dotnet test --logger:trx --results-directory ./test-results --configuration Release labtest2
-
-      - name: Convert TRX to Markdown Table
-        run: |
-          sudo apt-get install -y python3  # Установка Python, если необходимо
-          python3 -m pip install -U pip  # Обновление pip, если необходимо
-          python3 -m pip install trx2markdown  # Установка пакета для преобразования TRX в Markdown
-          trx2markdown ./test-results/*.trx -o test_results.md  # Преобразование TRX в Markdown-таблицу
-
-      - name: Upload Test Results as Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-results
-          path: test-results
+    - name: Run Tests
+      run: dotnet test --configuration Release --no-build labtest2
