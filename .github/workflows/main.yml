@@ -16,10 +16,12 @@ jobs:
           dotnet-version: '6.0'
 
       - name: Restore dependencies
-        run: dotnet restore testlab2
+        run: dotnet restore labtest2
 
       - name: Build
-        run: dotnet build --configuration Release testlab2
+        run: dotnet build --configuration Release labtest2
 
       - name: Run Tests
-        run: dotnet test --configuration Release --no-build testlab2
+        run: dotnet test --configuration Release --no-build labtest2
+      - name: Run Tests and Generate TRX
+        run: dotnet test --logger:trx
