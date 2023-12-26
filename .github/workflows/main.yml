@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -16,12 +16,23 @@ jobs:
           dotnet-version: '6.0'
 
       - name: Restore dependencies
-        run: dotnet restore labtest2
+        run: dotnet restore
 
       - name: Build
-        run: dotnet build --configuration Release labtest2
+        run: dotnet build --configuration Release
 
-      - name: Run Tests
-        run: dotnet test --configuration Release --no-build labtest2
-      - name: Run Tests and Generate TRX
-        run: dotnet test --logger:trx
+      - name: Run Tests and Save Results as TRX
+        run: dotnet test --logger:trx --results-directory ./test-results --configuration Release
+
+      - name: Convert TRX to Markdown Table
+        run: |
+          # Команда или скрипт для преобразования результатов TRX в Markdown-таблицу
+          # Например, вызов инструмента для преобразования или использование скрипта на языке программирования
+          # Ниже приведен пример использования Python для этой цели
+          python convert_trx_to_markdown.py ./test-results/testresults.trx > test_results.md
+
+      - name: Upload Test Results as Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
+          path: test-results
