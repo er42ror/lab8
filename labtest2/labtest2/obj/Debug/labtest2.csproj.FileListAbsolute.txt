@@ -1,0 +1,10 @@
+/Users/rasul/Projects/labtest2/labtest2/bin/Debug/labtest2.dll
+/Users/rasul/Projects/labtest2/labtest2/bin/Debug/labtest2.pdb
+/Users/rasul/Projects/labtest2/labtest2/bin/Debug/nunit.framework.dll
+/Users/rasul/Projects/labtest2/labtest2/bin/Debug/nunit.framework.pdb
+/Users/rasul/Projects/labtest2/labtest2/bin/Debug/nunit.framework.xml
+/Users/rasul/Projects/labtest2/labtest2/obj/Debug/labtest2.csproj.AssemblyReference.cache
+/Users/rasul/Projects/labtest2/labtest2/obj/Debug/labtest2.csproj.CoreCompileInputs.cache
+/Users/rasul/Projects/labtest2/labtest2/obj/Debug/labtest2.csproj.CopyComplete
+/Users/rasul/Projects/labtest2/labtest2/obj/Debug/labtest2.dll
+/Users/rasul/Projects/labtest2/labtest2/obj/Debug/labtest2.pdb
