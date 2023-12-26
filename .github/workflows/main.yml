@@ -12,11 +12,11 @@ jobs:
         dotnet-version: '6.0'
       
     - name: Restore dependencies
-      run: dotnet restore TestProjectN1
+      run: dotnet restore labtest2
 
     - name: Build
-      run: dotnet build --configuration Release TestProjectN1
+      run: dotnet build --configuration Release labtest2
 
 
     - name: Run Tests
-      run: dotnet test --configuration Release --no-build TestProjectN1
+      run: dotnet test --configuration Release --no-build labtest2
