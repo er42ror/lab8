@@ -1,22 +1,22 @@
 name: Run Tests
-
 on: [push]
-
 jobs:
   test:
     runs-on: windows-latest
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: '6.0'
+      
+    - name: Restore dependencies
+      run: dotnet restore TestProjectN1
 
     - name: Build
-      run: dotnet build --configuration Release labtest2
+      run: dotnet build --configuration Release TestProjectN1
+
 
     - name: Run Tests
-      run: dotnet test --configuration Release --no-build labtest2 --logger "console;verbosity=detailed"
+      run: dotnet test --configuration Release --no-build TestProjectN1
