@@ -19,7 +19,7 @@ jobs:
         run: dotnet restore lab8
 
       - name: Build
-        run: dotnet build --configuration Release lab8
+        run: dotnet build --configuration Release testlab2
 
       - name: Run Tests
-        run: dotnet test --configuration Release --no-build lab8
+        run: dotnet test --configuration Release --no-build testlab2
